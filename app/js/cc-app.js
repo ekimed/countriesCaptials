@@ -4,4 +4,4 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
 			templateUrl: './views/home.html',
 			controller: 'HomeCtrl'
 		});
-	});
+	}]);
