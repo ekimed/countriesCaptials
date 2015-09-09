@@ -4,7 +4,7 @@
 
 	// define country controller
 	angular.module('ccApp')
-		.controller('CountryCtrl', ['$scope', '$http', '$window', countryCtrl]);
+		.controller('CountryCtrl', ['$scope', '$http', '$window', '$location', countryCtrl]);
 
 	function countryXmlParser (data) {
 		// name, country code, capital, area in km2, popl, continent
@@ -17,7 +17,7 @@
 			pop: "population",
 			continent: "contintentName"
 		};
-		var temp;
+		var temp, q;
 
 		for (var i = 0; i < data.length; i++) {
 			temp = {};
@@ -27,6 +27,12 @@
 				}
 			}
 
+			// format country detail query string
+			if (temp.capital.length) {
+				q = '?q=' + temp.capital + '&countryCode=' + temp.countryCode + '&pop=' + temp.population;
+				temp.url = q;
+			}
+			
 			res.push(temp);
 		}
 
@@ -35,16 +41,18 @@
 
 	}
 
-	function countryCtrl ($scope, $http, $window) {
+	function countryCtrl ($scope, $http, $window, $location) {
 		var parser, xmlDoc, countriesArray;
 		var url = 'http://api.geonames.org/countryInfo?username=ekimed';
+		var goHome = function () {
+			$location.path('/');
+		}
 		// get countries
 		$http({
 			cache: true,
 			url: url,
 			method: 'GET'
 		}).success(function (res) {
-
 				// parse the XML data
 				if ($window.DOMParser) {
 					parser = new $window.DOMParser();

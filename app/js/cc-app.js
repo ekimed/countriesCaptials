@@ -9,7 +9,7 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
 			controller: "CountryCtrl"
 		})
 		.when('/capitals', {
-			templateUrl: 'views/capital.html',
-			controller: "CapitalCtrl"
+			templateUrl: 'views/ctryDetail.html',
+			controller: "CtryDetailCtrl"
 		});
 	}]);
