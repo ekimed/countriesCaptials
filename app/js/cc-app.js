@@ -3,5 +3,13 @@ angular.module('ccApp', ['ngRoute', 'ngAnimate'])
 		$routeProvider.when('/', {
 			templateUrl: 'views/home.html',
 			controller: 'HomeCtrl'
+		})
+		.when('/countries', {
+			templateUrl: 'views/country.html',
+			controller: "CountryCtrl"
+		})
+		.when('/capitals', {
+			templateUrl: 'views/capital.html',
+			controller: "CapitalCtrl"
 		});
 	}]);

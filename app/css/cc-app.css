@@ -1,6 +1,3 @@
-.homeWrapper {
-	text-align: center;
-}
-.homeText {
+.homeWrapper, .homeText, h1 {
 	text-align: center;
 }
