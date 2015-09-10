@@ -1,7 +1,6 @@
 (function () {
 	angular.module('ccApp', ['ngRoute', 'ngAnimate'])
 	.config(['$routeProvider', routeConfig]);
-	}]);
 
 	function routeConfig ($routeProvider) {
 		$routeProvider
@@ -21,5 +20,5 @@
 				redirectTo: '/countries'
 			});
 	}
-	
+
 }());
